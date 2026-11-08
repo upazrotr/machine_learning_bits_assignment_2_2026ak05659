@@ -46,7 +46,7 @@ def load_model(filename):
     return joblib.load(Path("model") / filename)
 
 
-st.caption("Name:   Tony Baby   ITSID: 2026ak05659")
+st.caption("Name:   Tony Baby \n BITSID: 2026ak05659")
 st.title("🏦 Bank Marketing Explorer")
 st.write("Can we identify term-deposit subscribers? Compare five classifiers on the same held-out calls.")
 
