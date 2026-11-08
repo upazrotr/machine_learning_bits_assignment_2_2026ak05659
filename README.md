@@ -92,7 +92,7 @@ Predicting `no` for every test record already gives **89.08% accuracy** while de
 ![EDS](images/screenshot1.png)
 
 **MODEL COMPARISON**
-![MODEL COMPARISON](images/screenshot2.png)
+![MODEL COMPARISON](images/screenshot2.png) ![MODEL COMPARISON](images/screenshot4.png)
 
 **STREAMLIT LOCAL**
 ![STREAMLIT](images/screenshot3.png)
