@@ -46,7 +46,7 @@ def load_model(filename):
     return joblib.load(Path("model") / filename)
 
 
-st.caption("BITS PILANI · M.TECH AIML · 2026ak05659")
+st.caption("Name:   Tony Baby   ITSID: 2026ak05659")
 st.title("🏦 Bank Marketing Explorer")
 st.write("Can we identify term-deposit subscribers? Compare five classifiers on the same held-out calls.")
 
@@ -54,10 +54,6 @@ with st.sidebar:
     st.header("Choose your experiment")
     selected_model = st.selectbox("Classification model", list(MODEL_FILES), index=4)
     st.caption("SVM was selected using training cross-validation macro F1.")
-    sample_path = Path("test_data.csv")
-    if sample_path.exists():
-        st.download_button("Download held-out test CSV", sample_path.read_bytes(),
-                           file_name="test_data.csv", mime="text/csv")
     st.markdown("**Experiment at a glance**")
     st.write("19 predictors · 5 classifiers · 6 metrics")
     st.write("Target: no = 0, yes = 1")
@@ -67,12 +63,17 @@ with st.sidebar:
 
 with st.container(border=True):
     st.subheader("Evaluate held-out calls")
+    st.info("Download the test CSV below, upload it here, then switch models in the sidebar to compare results.")
+    sample_path = Path("test_data.csv")
+    if sample_path.exists():
+        st.download_button("Download test_data.csv", sample_path.read_bytes(),
+                           file_name="test_data.csv", mime="text/csv")
+    else:
+        st.warning("test_data.csv is unavailable. Run the notebook to create it.")
     uploaded_file = st.file_uploader("Upload test_data.csv", type=["csv"],
                                     help="Include all 19 predictors and y. Comma or semicolon delimiters are accepted.")
-    st.caption("Use the provided test CSV to reproduce the notebook results. The saved model evaluates your upload immediately.")
 
 if uploaded_file is None:
-    st.info("Download the test CSV from the sidebar, then upload it here and switch models to compare results.")
     st.stop()
 
 try:
